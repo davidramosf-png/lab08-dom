@@ -1,27 +1,37 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Tarea: Registro de Notas</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 30px auto; padding: 20px; }
-        section { border: 1px solid #ccc; padding: 16px; border-radius: 8px; }
-        .error { color: #c0392b; font-weight: bold; }
-    </style>
+<meta charset="UTF-8">
+<title>Tarea - Lista de tareas</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 640px; margin: 30px auto; }
+section { border: 1px solid #ccc; padding: 12px; margin-bottom: 16px; }
+.error { color: #c0392b; }
+.hecha { text-decoration: line-through; color: #888; }
+li { margin: 6px 0; }
+button { margin-left: 6px; }
+</style>
 </head>
 <body>
-    <section>
-        <h1>Sistema de Notas de Estudiantes</h1>
-        <form id="formEstudiante">
-            <input type="text" id="nombreEst" placeholder="Nombre del estudiante">
-            <input type="number" id="notaEst" placeholder="Nota (0 - 20)" step="0.1">
-            <button type="submit">Registrar Nota</button>
-        </form>
-        <p id="msgError" class="error"></p>
-        <h3>Lista de Estudiantes y Notas</h3>
-        <ul id="listaNotas"></ul>
-        <h3>Promedio del Curso: <span id="promedio">0.00</span></h3>
-    </section>
-    <script src="app.js"></script>
+<h1>Mi lista de tareas</h1>
+<section>
+  <form id="formTarea">
+    <input id="texto" type="text" placeholder="Nueva tarea">
+    <select id="prioridad">
+      <option value="Alta">Alta</option>
+      <option value="Media" selected>Media</option>
+      <option value="Baja">Baja</option>
+    </select>
+    <button type="submit">Agregar</button>
+  </form>
+  <small id="contadorLetras">0 caracteres</small>
+  <p id="mensaje"></p>
+</section>
+<section>
+  <input id="buscador" type="text" placeholder="Buscar tarea...">
+  <ul id="lista"></ul>
+  <p id="resumen"></p>
+</section>
+<script src="app.js"></script>
 </body>
 </html>
