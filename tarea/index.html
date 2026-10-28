@@ -1,37 +1,87 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Tarea - Lista de tareas</title>
-<style>
-body { font-family: Arial, sans-serif; max-width: 640px; margin: 30px auto; }
-section { border: 1px solid #ccc; padding: 12px; margin-bottom: 16px; }
-.error { color: #c0392b; }
-.hecha { text-decoration: line-through; color: #888; }
-li { margin: 6px 0; }
-button { margin-left: 6px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi lista de tareas</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 720px;
+      margin: 30px auto;
+      padding: 0 16px;
+      color: #1f2933;
+      background: #f4f6f8;
+      line-height: 1.5;
+    }
+    h1 { color: #0b5cad; }
+    section {
+      background: #fff;
+      border: 1px solid #9aa5b1;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    label { display: block; font-weight: bold; margin-bottom: 6px; }
+    input, select, button {
+      min-height: 44px;
+      padding: 10px;
+      font: inherit;
+      border: 1px solid #52606d;
+      border-radius: 5px;
+    }
+    input { width: 100%; margin-bottom: 12px; }
+    select { margin-right: 8px; }
+    button { cursor: pointer; background: #0b5cad; color: #fff; }
+    button:hover { background: #084b8a; }
+    button.secundario { background: #fff; color: #1f2933; }
+    button.secundario:hover { background: #e9eef3; }
+    :focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+    .ayuda { display: block; margin: -8px 0 12px; color: #52606d; }
+    .error { color: #b42318; font-weight: bold; }
+    .hecha { text-decoration: line-through; color: #52606d; }
+    li { margin: 10px 0; }
+    li button { margin-left: 8px; }
+    @media (max-width: 480px) {
+      body { margin: 16px auto; }
+      section { padding: 16px; }
+      form button, form select { width: 100%; margin: 8px 0 0; }
+      li button { margin: 8px 4px 0 0; }
+    }
+  </style>
 </head>
 <body>
-<h1>Mi lista de tareas</h1>
-<section>
-  <form id="formTarea">
-    <input id="texto" type="text" placeholder="Nueva tarea">
-    <select id="prioridad">
-      <option value="Alta">Alta</option>
-      <option value="Media" selected>Media</option>
-      <option value="Baja">Baja</option>
-    </select>
-    <button type="submit">Agregar</button>
-  </form>
-  <small id="contadorLetras">0 caracteres</small>
-  <p id="mensaje"></p>
-</section>
-<section>
-  <input id="buscador" type="text" placeholder="Buscar tarea...">
-  <ul id="lista"></ul>
-  <p id="resumen"></p>
-</section>
-<script src="app.js"></script>
+  <h1>Mi lista de tareas</h1>
+  <p>Agrega tus pendientes, elige una prioridad y marca lo que ya terminaste.</p>
+
+  <section aria-labelledby="titulo-agregar">
+    <h2 id="titulo-agregar">Agregar una tarea</h2>
+    <form id="formTarea">
+      <label for="texto">Nueva tarea</label>
+      <input id="texto" type="text" placeholder="Ejemplo: Repasar HTML" minlength="3" required aria-describedby="ayudaTarea">
+      <small id="ayudaTarea" class="ayuda">Escribe al menos 3 caracteres.</small>
+
+      <label for="prioridad">Prioridad</label>
+      <select id="prioridad">
+        <option value="Alta">Alta</option>
+        <option value="Media" selected>Media</option>
+        <option value="Baja">Baja</option>
+      </select>
+      <button type="submit">Agregar tarea</button>
+    </form>
+    <small id="contadorLetras">0 caracteres</small>
+    <p id="mensaje" role="status" aria-live="polite"></p>
+  </section>
+
+  <section aria-labelledby="titulo-lista">
+    <h2 id="titulo-lista">Mis pendientes</h2>
+    <label for="buscador">Buscar una tarea</label>
+    <input id="buscador" type="search" placeholder="Escribe para filtrar la lista">
+    <p id="resumen" aria-live="polite"></p>
+    <ul id="lista"></ul>
+  </section>
+
+  <script src="app.js"></script>
 </body>
 </html>
