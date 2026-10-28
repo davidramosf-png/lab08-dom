@@ -5,20 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi lista de tareas</title>
   <style>
+    :root {
+      --color-primario: #0b5cad;
+      --color-primario-hover: #084b8a;
+      --color-texto: #1f2933;
+      --color-suave: #52606d;
+      --color-borde: #9aa5b1;
+      --color-borde-campo: #52606d;
+      --color-fondo: #f4f6f8;
+      --color-tarjeta: #ffffff;
+      --color-blanco: #ffffff;
+      --color-hover-secundario: #e9eef3;
+      --color-error: #b42318;
+      --color-acento: #f59e0b;
+    }
     * { box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
       max-width: 720px;
       margin: 30px auto;
       padding: 0 16px;
-      color: #1f2933;
-      background: #f4f6f8;
+      color: var(--color-texto);
+      background: var(--color-fondo);
       line-height: 1.5;
     }
-    h1 { color: #0b5cad; }
+    h1 { color: var(--color-primario); }
     section {
-      background: #fff;
-      border: 1px solid #9aa5b1;
+      background: var(--color-tarjeta);
+      border: 1px solid var(--color-borde);
       border-radius: 8px;
       padding: 20px;
       margin-bottom: 16px;
@@ -28,19 +42,19 @@
       min-height: 44px;
       padding: 10px;
       font: inherit;
-      border: 1px solid #52606d;
+      border: 1px solid var(--color-borde-campo);
       border-radius: 5px;
     }
     input { width: 100%; margin-bottom: 12px; }
     select { margin-right: 8px; }
-    button { cursor: pointer; background: #0b5cad; color: #fff; }
-    button:hover { background: #084b8a; }
-    button.secundario { background: #fff; color: #1f2933; }
-    button.secundario:hover { background: #e9eef3; }
-    :focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
-    .ayuda { display: block; margin: -8px 0 12px; color: #52606d; }
-    .error { color: #b42318; font-weight: bold; }
-    .hecha { text-decoration: line-through; color: #52606d; }
+    button { cursor: pointer; background: var(--color-primario); color: var(--color-blanco); }
+    button:hover { background: var(--color-primario-hover); }
+    button.secundario { background: var(--color-tarjeta); color: var(--color-texto); }
+    button.secundario:hover { background: var(--color-hover-secundario); }
+    :focus-visible { outline: 3px solid var(--color-acento); outline-offset: 2px; }
+    .ayuda { display: block; margin: -8px 0 12px; color: var(--color-suave); }
+    .error { color: var(--color-error); font-weight: bold; }
+    .hecha { text-decoration: line-through; color: var(--color-suave); }
     li { margin: 10px 0; }
     li button { margin-left: 8px; }
     @media (max-width: 480px) {
